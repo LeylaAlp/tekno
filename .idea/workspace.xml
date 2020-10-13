@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76c225cf-f5e4-4a0a-8b6d-11575b303cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/66679983-3569-41e7-8326-93e9e292b5fc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Yorumlar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_042635_create_yorumlar_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/profil.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UrunController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UrunController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Yonetim/KategoriController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Yonetim/KategoriController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Kullanici.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Kullanici.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/KullaniciDetay.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/KullaniciDetay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Urun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Urun.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_05_052751_create_kategori_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_05_052751_create_kategori_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/anasayfa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/anasayfa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/urun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/urun.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/yonetim/kategori/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/yonetim/kategori/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -224,24 +207,6 @@
               <item name="Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="urunler" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -301,7 +266,7 @@
       <workItem from="1602476409344" duration="10199000" />
       <workItem from="1602512121834" duration="14630000" />
       <workItem from="1602562309885" duration="7841000" />
-      <workItem from="1602602141046" duration="10097000" />
+      <workItem from="1602602141046" duration="10368000" />
     </task>
     <task id="LOCAL-00001" summary="ilk yükleme(filemanager kuruldu)">
       <created>1602272012048</created>
@@ -317,11 +282,18 @@
       <option name="project" value="LOCAL" />
       <updated>1602272055285</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="urun yorumları olusturuldu">
+      <created>1602617119275</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602617119291</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52181000" />
+    <option name="totallyTimeSpent" value="52452000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -335,7 +307,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20726173" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20726173" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -347,7 +319,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.41571194" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.41571194" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.29623568" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
@@ -403,7 +375,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ilk yükleme(filemanager kuruldu)" />
     <MESSAGE value="vcs.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="vcs.xml" />
+    <MESSAGE value="urun yorumları olusturuldu" />
+    <option name="LAST_COMMIT_MESSAGE" value="urun yorumları olusturuldu" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitattributes">
