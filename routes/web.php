@@ -67,6 +67,7 @@ Route::get('/', 'AnasayfaController@index')->name('anasayfa');
 Route::get('kategori/{slug_kategoriadi}', 'KategoriController@index')->name('kategori');
 
 Route::get('urun/{slug_urunadi}', 'UrunController@index')->name('urun');
+Route::post('urun/{slug_urunadi}', 'UrunController@index')->name('yorum.kaydet');
 Route::post('/ara', 'UrunController@ara')->name('urun_ara');
 Route::get('/ara', 'UrunController@ara')->name('urun_ara');
 
@@ -81,6 +82,8 @@ Route::group(['prefix' => 'sepet'], function () {
 
 
 });
+
+//Route::get('urun/{slug_urunadi}','YorumlarController@index')->name('urun');
 
 
 Route::get('odeme', 'OdemeController@index')->name('odeme');

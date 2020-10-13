@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateKategoriTable extends Migration
+class CreateYorumlarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,13 @@ class CreateKategoriTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
+        Schema::create('yorumlar', function (Blueprint $table) {
             $table->id();
-            $table->integer('ust_id')->nullable();
-            $table->string('kategori_adi',30);
-            $table->string('slug',40);
-            $table->string('kategori_resmi',50);
+            $table->foreignId('urun_id')->constrained('urun')->onDelete('cascade');
+            $table->foreignId('kullanici_id')->constrained('kullanici')->onDelete('cascade');
+            $table->string('yorum',1000);
             $table->timestamp('olusturulma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
-//            $table->softDeletes();
             $table->timestamp('silinme_tarihi')->nullable();
         });
     }
@@ -34,6 +32,6 @@ class CreateKategoriTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori');
+        Schema::dropIfExists('yorumlar');
     }
 }

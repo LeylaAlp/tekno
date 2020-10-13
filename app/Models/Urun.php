@@ -27,5 +27,10 @@ class Urun extends Model
         return $this->hasOne('App\Models\UrunDetay')->withDefault();
     }
 
+//    public function yorum()
+//    {
+//        return $this->belongsTo('App\Models\Yorumlar');
+//    }
+
 
 }

@@ -40,4 +40,12 @@ class Kullanici extends Authenticatable
     }
 
 
+    public function yorum()
+    {
+        return $this->hasOne('App\Models\Yorumlar');
+    }
+
+
+
+
 }

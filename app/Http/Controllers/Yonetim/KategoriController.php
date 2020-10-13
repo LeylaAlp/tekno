@@ -68,6 +68,30 @@ class KategoriController extends Controller
         }
 
 
+
+        if ($request->hasFile('kategori_resmi')) {
+            $this->validate($request,[
+                'kategori_resmi' => 'image|mimes:jpg,png,jpeg,gif|max:2048'
+            ]);
+
+            $kategori_resmi=$request->kategori_resmi;
+
+
+            $dosyaadi=$entry->id . "-" . time() . "." . $kategori_resmi->extension();
+
+            if($kategori_resmi->isValid()){
+                $kategori_resmi->move('images/kategori',$dosyaadi);
+
+                Kategori::updateOrCreate(
+                    ['id' => $entry->id],
+                    ['kategori_resmi' => $dosyaadi]
+                );
+
+            }
+
+
+        }
+
         return redirect()->route('yonetim.kategori.duzenle', $entry->id)
             ->with('mesaj', ($id > 0 ? 'Güncelleme İşlemi Başarılı' : 'Kaydetme İşlemi Başarılı'))
             ->with('mesaj_tur', 'success');

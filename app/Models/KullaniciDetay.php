@@ -13,6 +13,7 @@ class KullaniciDetay extends Model
     protected $fillable = ['kullanici_id', 'adres', 'telefon', 'ceptelefonu'];
 
 
+
     public function kullanici()
     {
         return $this->belongsTo('App\Models\Kullanici');

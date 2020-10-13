@@ -14,7 +14,7 @@
 
 
 
-    @endsection
+@endsection
 
 
 @section('content')
@@ -29,10 +29,12 @@
                     <ul>
                         <li><a href="{{ route('anasayfa') }}">Anasayfa</a></li>
                         @foreach($kategoriler as $kategori)
-                        <li><a href="{{ route('kategori',$kategori->slug) }}"><i class="fa fa-angle-right" aria-hidden="true">
-                                </i>{{ $kategori->kategori_adi }}</a></li>
+                            <li><a href="{{ route('kategori',$kategori->slug) }}"><i class="fa fa-angle-right"
+                                                                                     aria-hidden="true">
+                                    </i>{{ $kategori->kategori_adi }}</a></li>
                         @endforeach
-                        <li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $urun->urun_adi }}</li>
+                        <li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $urun->urun_adi }}
+                        </li>
                     </ul>
                 </div>
 
@@ -47,15 +49,19 @@
                             <div class="single_product_thumbnails">
                                 <!--   -->
                                 <ul>
-                                    <li><img src="/images/single_1_thumb.jpg" alt="" data-image="images/single_1.jpg"></li>
-                                    <li class="active"><img src="/images/single_2_thumb.jpg" alt="" data-image="images/single_2.jpg"></li>
-                                    <li><img src="/images/single_3_thumb.jpg" alt="" data-image="images/single_3.jpg"></li>
+                                    <li><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt="" data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
+                                    </li>
+                                    <li class="active"><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt=""
+                                                            data-image="/images/urunler/{{ $urun->detay->urun_resmi }}"></li>
+                                    <li><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt="" data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-9 image_col order-lg-2 order-1">
                             <div class="single_product_image">
-                                <div class="single_product_image_background" style="background-image:url(/images/single_2.jpg)"></div>
+                                <div class="single_product_image_background"
+                                     style="background-image:url(/images/urunler/{{ $urun->detay->urun_resmi }})"></div>
                             </div>
                         </div>
                     </div>
@@ -64,14 +70,17 @@
             <div class="col-lg-5">
                 <div class="product_details">
                     <div class="product_details_title">
+
                         <h2>{{ $urun->urun_adi }}</h2>
                         <p>{{ $urun->aciklama }}</p>
                     </div>
                     <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                         <span class="ti-truck"></span><span>Ücretsiz Teslimat</span>
                     </div>
-                   <br>
                     <br>
+                    <br>
+                    {{ $urun->urun_id }}
+
                     <div class="product_price">{{ $urun->fiyati }} ₺</div>
 
                     <br>
@@ -83,7 +92,8 @@
                         @csrf
                         <input type="hidden" name="id" value="{{ $urun->id }}">
                         <button type="submit" class="btn btn-danger btn-md btn-block">
-                            Sepete Ekle</button>
+                            Sepete Ekle
+                        </button>
                     </form>
                 </div>
             </div>
@@ -101,7 +111,7 @@
                 <div class="col">
                     <div class="tabs_container">
                         <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-                            <li class="tab active" data-active-tab="tab_1"><span>Reviews (2)</span></li>
+                            <li class="tab active" data-active-tab="tab_1"><span>Yorumlar ({{ count($comment) }})</span></li>
 
                         </ul>
                     </div>
@@ -111,93 +121,89 @@
                 <div class="col">
 
 
-
                     <!-- Tab Reviews -->
 
                     <div id="tab_1" class="tab_container active">
                         <div class="row">
 
-                            <!-- Kullanici Reviews -->
 
-                            <div class="col-lg-6 reviews_col">
-                                <div class="tab_title reviews_title">
-                                    <h4>Reviews (2)</h4>
-                                </div>
 
                                 <!-- Kullanici Review -->
 
-                                <div class="user_review_container d-flex flex-column flex-sm-row">
-                                    <div class="user">
-                                        <div class="user_pic"></div>
-                                        <div class="user_rating">
-                                            <ul class="star_rating">
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="review">
-                                        <div class="review_date">27 Aug 2016</div>
-                                        <div class="user_name">Brandon William</div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
 
-                                <!-- Kullanici Review -->
+                            @foreach($comment as $com)
 
                                 <div class="user_review_container d-flex flex-column flex-sm-row">
                                     <div class="user">
-                                        <div class="user_pic"></div>
+                                        <div>
+                                            <img width="200" height="200" src="/images/profil.png" alt="">
+                                        </div>
                                         <div class="user_rating">
-                                            <ul class="star_rating">
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                                            </ul>
                                         </div>
                                     </div>
+
+
                                     <div class="review">
-                                        <div class="review_date">27 Aug 2016</div>
-                                        <div class="user_name">Brandon William</div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <div class="review_date">{{ $com->olusturulma_tarihi }}</div>
+                                        <div class="user_name">{{ $com->kullanici->adsoyad }}</div>
+                                        <p>{{ $com->yorum }}</p>
                                     </div>
                                 </div>
-                            </div>
+
+                                @endforeach
+
+
+                            @auth
 
                             <!-- Add Review -->
-
                             <div class="col-lg-6 add_review_col">
 
                                 <div class="add_review">
-                                    <form id="review_form" action="post">
+                                    <form id="review_form" action="{{ route('yorum.kaydet',$urun->slug) }}" method="POST">
+                                            @csrf
                                         <div>
-                                            <h1>Add Review</h1>
-                                            <input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-                                            <input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
-                                        </div>
-                                        <div>
-                                            <h1>Your Rating:</h1>
-                                            <ul class="user_star_rating">
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                                            </ul>
-                                            <textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+                                            <h1>Yorumunuz:</h1>
+                                            <textarea id="review_message" class="input_review" name="yorum"
+                                                      placeholder="Urun Hakkında Deneyimlerinizi Belirtiniz" rows="4" cols="18" required
+                                                      data-error="Please, leave us a review."></textarea>
                                         </div>
                                         <div class="text-left text-sm-right">
-                                            <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+
+                                            <input type="hidden" name="id" value="{{ $urun->id }}">
+                                            <button id="review_submit" type="submit"
+                                                    class="red_button review_submit_btn trans_300" value="Submit">Gönder
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
+
+                                @endauth
+
+                            @guest
+                            <!-- Add Review -->
+                                <div class="col-lg-12 add_review_col">
+
+                                    <div class="add_review">
+                                            <div width="120">
+                                              <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                                  Ürün Hakkında Yorum Yapabilmek İçin Lütfen Giriş Yapınız !</h1>
+
+                                            </div>
+                                            <div class="text-left text-sm-right">
+
+                                            </div>
+                                    </div>
+                                </div>
+
+                            @endguest
+
+
 
                         </div>
                     </div>
@@ -254,7 +260,7 @@
     </div>
 
 
-    @endsection
+@endsection
 
 
 @section('footer')
@@ -268,4 +274,4 @@
     <script src="/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="/js/single_custom.js"></script>
 
-    @endsection
+@endsection

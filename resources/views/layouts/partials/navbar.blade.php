@@ -137,14 +137,14 @@ submit()">Çıkış</a>
                     </div>
                     &nbsp; &nbsp;&nbsp;
                     <nav class="navbar">
-                        <ul class="navbar_menu">
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">shop</a></li>
-                            <li><a href="#">promotion</a></li>
-                            <li><a href="#">pages</a></li>
-                            <li><a href="#">blog</a></li>
-                            <li><a href="contact.html">contact</a></li>
-                        </ul>
+                        {{--<ul class="navbar_menu">--}}
+                            {{--<li><a href="#">home</a></li>--}}
+                            {{--<li><a href="#">shop</a></li>--}}
+                            {{--<li><a href="#">promotion</a></li>--}}
+                            {{--<li><a href="#">pages</a></li>--}}
+                            {{--<li><a href="#">blog</a></li>--}}
+                            {{--<li><a href="contact.html">contact</a></li>--}}
+                        {{--</ul>--}}
                         <ul class="navbar_user">
                             <li>
                                 <div class="s128">
@@ -164,6 +164,7 @@ submit()">Çıkış</a>
                                 </div>
 
                             </li>
+                            &nbsp; &nbsp;
                             <li class="checkout">
                                 <a href="{{ route('sepet') }}">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>

@@ -48,6 +48,33 @@
 
 
                                     <div class="row form-group">
+
+                                        @if($entry->kategori_resmi != null)
+                                            <img src="/images/kategori/{{ $entry->kategori_resmi }}" alt="Kategori Resmi"
+                                                 style="height: 120px; margin-right: 20px;" class="pull-left">
+
+                                            <div class="col-12 col-md-9">
+                                                <label for="text-input" class=" form-control-label">Kategori Resmi</label>
+                                                <br>
+                                                <br>
+                                                <input type="file" name="kategori_resmi" class="form-control">
+                                                <small style="color:red;"> Sadece Ana Kategorilere Resim Ekleyiniz !</small>
+                                            </div>
+                                        @else
+                                            <div class="col-md-3">
+                                                <label for="text-input" class=" form-control-label">Kategori Resmi</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="file" name="kategori_resmi" class="form-control">
+                                                <small style="color:red;"> Sadece Ana Kategorilere Resim Ekleyiniz !</small>
+
+                                            </div>
+                                        @endif
+
+                                    </div>
+
+
+                                    <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Üst Kategori</label>
                                         </div>
