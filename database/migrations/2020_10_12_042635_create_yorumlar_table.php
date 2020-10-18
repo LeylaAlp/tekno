@@ -14,7 +14,7 @@ class CreateYorumlarTable extends Migration
      */
     public function up()
     {
-        Schema::create('yorumlar', function (Blueprint $table) {
+        Schema::create('yorum', function (Blueprint $table) {
             $table->id();
             $table->foreignId('urun_id')->constrained('urun')->onDelete('cascade');
             $table->foreignId('kullanici_id')->constrained('kullanici')->onDelete('cascade');
@@ -32,6 +32,6 @@ class CreateYorumlarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('yorumlar');
+        Schema::dropIfExists('yorum');
     }
 }

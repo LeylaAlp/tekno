@@ -240,13 +240,16 @@
                                     {{--<img id="holder" style="margin-top:15px;max-height:100px;">--}}
 
                                     {{--<div class="card-footer">--}}
-
-                                        {{--<button type="submit" class="btn btn-primary btn-sm">--}}
-                                            {{--<i class="fa fa-dot-circle-o"></i> {{ $entry->id >0 ? 'Güncelle' : 'Kaydet'  }}--}}
-                                        {{--</button>--}}
-                                    {{--</div>--}}
-
+                            {{--</div>--}}
                                 <!--  FİLEMANAGER -->
+
+
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> {{ $entry->id >0 ? 'Güncelle' : 'Kaydet'  }}
+                                        </button>
+
+
+
 
 
                                 </form>

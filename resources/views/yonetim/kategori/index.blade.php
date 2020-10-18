@@ -84,7 +84,7 @@
                                             <td>{{ $entry->slug }}</td>
                                             <td>{{ $entry->ust_kategori->kategori_adi }}</td>
                                             <td>{{ $entry->kategori_adi }}</td>
-                                            <td>{{ $entry->olusturulma_tarihi }}</td>
+                                            <td>{{ $entry->olusturulma_tarihi->isoFormat('LLLL') }}</td>
 
                                             <td>
                                                 <a href="{{ route('yonetim.kategori.duzenle',$entry->id) }}"><span

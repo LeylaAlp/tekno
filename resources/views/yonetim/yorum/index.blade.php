@@ -1,5 +1,5 @@
 @extends('yonetim.layouts.master')
-@section('title','Kullanıcı')
+@section('title','Yorumlar')
 
 @section('content')
 
@@ -19,23 +19,19 @@
                             <div class="overview-wrap">
 
 
-                                <form class="form-header" action="{{ route('yonetim.kullanici') }}" method="POST">
+                                <form class="form-header" action="{{ route('yonetim.yorum') }}" method="POST">
                                     @csrf
-                                    <input class="au-input au-input--xl" type="text" name="aranan" value="{{ old('aranan') }}" placeholder="Ad, Email Ara.." />
+                                    <input class="au-input au-input--xl" type="text" name="aranan" value="{{ old('aranan') }}" placeholder="Yorum Ara.." />
                                     <button class="au-btn--submit" type="submit">
                                         <i class="zmdi zmdi-search"></i>
                                     </button>
-                                    <a href="{{ route('yonetim.kullanici') }}"><button class="au-btn--submit" type="submit">
-                                            <span>  Temizle </span>
-                                        </button></a>
+                                    <a class="au-btn--submit" type="button" href="{{ route('yonetim.yorum') }}">
+                                        <span class="btn-outline-danger">  Temizle </span>
+                                    </a>
+
 
                                 </form>
 
-                                <a href="{{ route('yonetim.kullanici.yeni') }}">
-                                    <button class="btn btn-primary btn-md">
-                                        <i class="zmdi zmdi-plus"></i> Yeni
-                                    </button>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -48,10 +44,8 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Ad Soyad</th>
                                         <th>Email</th>
-                                        <th>Aktif Mi</th>
-                                        <th>Yönetici Mi</th>
+                                        <th>Yorum</th>
                                         <th>Kayıt Tarihi</th>
                                         <th></th>
                                         <th></th>
@@ -61,29 +55,15 @@
                                     @foreach($list as $entry)
                                         <tr>
                                             <td>{{ $entry->id }}</td>
-                                            <td>{{ $entry->adsoyad }}</td>
-                                            <td>{{ $entry->email }}</td>
-                                            <td>
-                                                @if($entry->aktif_mi)
-                                                    <span class="btn-outline-success">Aktif</span>
-                                                @else
-                                                    <span class="btn-outline-danger">Pasif</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if($entry->yonetici_mi)
-                                                    <span class="btn-outline-success">Yönetici</span>
-                                                @else
-                                                    <span class="btn-outline-danger">Müşteri</span>
-                                                @endif
-                                            </td>
+                                            <td>{{ $entry->kullanici->email }}</td>
+                                            <td>{{ substr($entry->yorum,0,70) }}...</td>
+
                                             <td>{{ $entry->olusturulma_tarihi->isoFormat('LLLL') }}</td>
 
                                             <td>
-                                                <a href="{{ route('yonetim.kullanici.duzenle',$entry->id) }}"><span
-                                                        class="btn-outline-success">Düzenle</span></a>
+                                                <a href="{{ route('yonetim.yorum.duzenle',$entry->id) }}"><span
+                                                        class="btn-outline-success">İncele</span></a>
                                             </td>
-
                                             <td>
                                                 <a href="javascript:void(0)"><span id="{{ $entry->id }}"
                                                                                    class="btn-outline-danger">Sil</span></a>
@@ -111,7 +91,7 @@
             destroy_id = $(this).attr('id');
             alertify.confirm('Silme İşlemini Onaylayın', 'Bu işlem Geri Alınamaz!',
                 function () {
-                    location.href = "/yonetim/kullanici/sil/" + destroy_id;
+                    location.href = "/yonetim/yorum/sil/" + destroy_id;
 
                 },
                 function () {

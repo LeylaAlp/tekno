@@ -106,7 +106,7 @@
                                     <div class="product-item men">
                                         <div class="product discount product_filter">
                                             <div class="product_image">
-                                                <a href="{{ route('urun',$urun->slug) }}"><img src="/images/product_1.png" alt=""></a>
+                                                <a href="{{ route('urun',$urun->slug) }}"><img src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt=""></a>
                                             </div>
                                             <div class="favorite favorite_left"></div>
                                             <div class="product_info">

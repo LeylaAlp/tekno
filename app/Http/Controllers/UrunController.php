@@ -7,6 +7,7 @@ use App\Models\Urun;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Yorumlar;
 
+
 class UrunController extends Controller
 {
     public function index(Request $request, $slug_urunadi)
@@ -33,18 +34,19 @@ class UrunController extends Controller
 //
 //            $urun = Urun::whereSlug($slug_urunadi)->firstOrFail();
 //            $kategoriler = $urun->kategoriler()->distinct()->get();
-//            $comment = Yorumlar::where('urun_id', $yorumlar->id)->get();
+//            $comment = Yorumlar::where('urun_id', $yorum->id)->get();
         }
 
             $yorum = Urun::whereSlug($slug_urunadi)->get();
             $urun = Urun::whereSlug($slug_urunadi)->firstOrFail();
             $kategoriler = $urun->kategoriler()->distinct()->get();
 
+
             foreach ($yorum as $u) {
                  $u->id;
             }
-            $comment = Yorumlar::where('urun_id', $u->id)->get();
 
+            $comment = Yorumlar::where('urun_id', $u->id)->get();
 
 
         return view('urun', compact('urun', 'kategoriler', 'comment'));

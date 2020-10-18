@@ -1,5 +1,5 @@
 @extends('yonetim.layouts.master')
-@section('title','Kullanıcı')
+@section('title','Sipariş Yönetimi')
 
 @section('content')
 
@@ -10,28 +10,38 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
 
+                    @if(session()->has('mesaj'))
+                        <div class="alert alert-{{ session('mesaj_tur') }} alert-dismissible fade show save"
+                             role="alert">
+                            <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-
-
+                                {{ session('mesaj') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
 
                     <div class="row">
                         <div class="col-md-12">
                             <div class="overview-wrap">
 
 
-                                <form class="form-header" action="{{ route('yonetim.kullanici') }}" method="POST">
+                                <form class="form-header" action="{{ route('yonetim.siparis') }}" method="POST">
                                     @csrf
-                                    <input class="au-input au-input--xl" type="text" name="aranan" value="{{ old('aranan') }}" placeholder="Ad, Email Ara.." />
+                                    <input class="au-input au-input--xl" type="text" name="aranan" value="{{ old('aranan') }}" placeholder="Sipariş Adı Ara.." />
                                     <button class="au-btn--submit" type="submit">
                                         <i class="zmdi zmdi-search"></i>
                                     </button>
-                                    <a href="{{ route('yonetim.kullanici') }}"><button class="au-btn--submit" type="submit">
-                                            <span>  Temizle </span>
-                                        </button></a>
+                                    <a class="au-btn--submit" type="button" href="{{ route('yonetim.siparis') }}">
+                                            <span class="btn-outline-danger">  Temizle </span>
+                                        </a>
 
                                 </form>
 
-                                <a href="{{ route('yonetim.kullanici.yeni') }}">
+                                <a href="{{ route('yonetim.siparis.yeni') }}">
                                     <button class="btn btn-primary btn-md">
                                         <i class="zmdi zmdi-plus"></i> Yeni
                                     </button>
@@ -47,12 +57,11 @@
                                 <table class="table table-borderless table-data3">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Ad Soyad</th>
-                                        <th>Email</th>
-                                        <th>Aktif Mi</th>
-                                        <th>Yönetici Mi</th>
-                                        <th>Kayıt Tarihi</th>
+                                        <th>Sipariş Kodu</th>
+                                        <th>Kullanıcı</th>
+                                        <th>Tutar</th>
+                                        <th>Durum</th>
+                                        <th>Sipariş Tarihi</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -60,27 +69,14 @@
                                     <tbody>
                                     @foreach($list as $entry)
                                         <tr>
-                                            <td>{{ $entry->id }}</td>
-                                            <td>{{ $entry->adsoyad }}</td>
-                                            <td>{{ $entry->email }}</td>
-                                            <td>
-                                                @if($entry->aktif_mi)
-                                                    <span class="btn-outline-success">Aktif</span>
-                                                @else
-                                                    <span class="btn-outline-danger">Pasif</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if($entry->yonetici_mi)
-                                                    <span class="btn-outline-success">Yönetici</span>
-                                                @else
-                                                    <span class="btn-outline-danger">Müşteri</span>
-                                                @endif
-                                            </td>
+                                            <td>SP-000{{ $entry->id }}</td>
+                                            <td>{{ $entry->sepet->kullanici->adsoyad }}</td>
+                                            <td>{{ $entry->siparis_tutari * ((100+config('cart.tax')) / 100) }} ₺</td>
+                                            <td>{{ $entry->durum }}</td>
                                             <td>{{ $entry->olusturulma_tarihi->isoFormat('LLLL') }}</td>
 
                                             <td>
-                                                <a href="{{ route('yonetim.kullanici.duzenle',$entry->id) }}"><span
+                                                <a href="{{ route('yonetim.siparis.duzenle',$entry->id) }}"><span
                                                         class="btn-outline-success">Düzenle</span></a>
                                             </td>
 
@@ -91,6 +87,8 @@
                                         </tr>
 
                                     @endforeach
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -111,7 +109,7 @@
             destroy_id = $(this).attr('id');
             alertify.confirm('Silme İşlemini Onaylayın', 'Bu işlem Geri Alınamaz!',
                 function () {
-                    location.href = "/yonetim/kullanici/sil/" + destroy_id;
+                    location.href = "/yonetim/siparis/sil/" + destroy_id;
 
                 },
                 function () {

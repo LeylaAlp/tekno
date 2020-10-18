@@ -65,7 +65,7 @@
                                             <td>{{ $entry->slug }}</td>
                                             <td>{{ $entry->urun_adi }}</td>
                                             <td>{{ $entry->fiyati }} ₺</td>
-                                            <td>{{ $entry->olusturulma_tarihi }}</td>
+                                            <td>{{ $entry->olusturulma_tarihi->isoFormat('LLLL') }}</td>
 
                                             <td>
                                                 <a href="{{ route('yonetim.urun.duzenle',$entry->id) }}"><span
@@ -79,6 +79,8 @@
                                         </tr>
 
                                     @endforeach
+
+
                                     </tbody>
                                 </table>
                             </div>

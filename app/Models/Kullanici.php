@@ -22,6 +22,7 @@ class Kullanici extends Authenticatable
         'sifre', 'aktivasyon_anahtari'
     ];
 
+    protected $dates=['olusturulma_tarihi'];
 
     const CREATED_AT = "olusturulma_tarihi";
     const UPDATED_AT = "guncelleme_tarihi";

@@ -10,6 +10,7 @@ class Siparis extends Model
     use SoftDeletes;
 
     protected $table = "siparis";
+    protected $dates=['olusturulma_tarihi'];
 
     protected $fillable = ['sepet_id', 'siparis_tutari', 'durum', 'banka', 'taksit_sayisi','adsoyad','adres','telefon','ceptelefonu'];
 

@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/styles/single_responsive.css">
 
 
+    {{--@php require 'vendor/autoload.php'  @endphp--}}
+
+
 
 @endsection
 
@@ -49,11 +52,15 @@
                             <div class="single_product_thumbnails">
                                 <!--   -->
                                 <ul>
-                                    <li><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt="" data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
+                                    <li><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt=""
+                                             data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
                                     </li>
-                                    <li class="active"><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt=""
-                                                            data-image="/images/urunler/{{ $urun->detay->urun_resmi }}"></li>
-                                    <li><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt="" data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
+                                    <li class="active"><img height="135px"
+                                                            src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt=""
+                                                            data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
+                                    </li>
+                                    <li><img height="135px" src="/images/urunler/{{ $urun->detay->urun_resmi }}" alt=""
+                                             data-image="/images/urunler/{{ $urun->detay->urun_resmi }}">
                                     </li>
                                 </ul>
                             </div>
@@ -111,7 +118,8 @@
                 <div class="col">
                     <div class="tabs_container">
                         <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-                            <li class="tab active" data-active-tab="tab_1"><span>Yorumlar ({{ count($comment) }})</span></li>
+                            <li class="tab active" data-active-tab="tab_1"><span>Yorumlar ({{ count($comment) }})</span>
+                            </li>
 
                         </ul>
                     </div>
@@ -127,9 +135,7 @@
                         <div class="row">
 
 
-
-                                <!-- Kullanici Review -->
-
+                            <!-- Kullanici Review -->
 
                             @foreach($comment as $com)
 
@@ -141,68 +147,73 @@
                                         <div class="user_rating">
                                         </div>
                                     </div>
-
-
+                                    {{--<h1>  {{ Carbon\Carbon::parse($com->olusturulma_tarihi)->isoFormat('LLLL') }}</h1>--}}
+                                    <h1></h1>
                                     <div class="review">
-                                        <div class="review_date">{{ $com->olusturulma_tarihi }}</div>
+
+                                        <div class="review_date">{{ $com->olusturulma_tarihi->isoFormat('LLLL') }}</div>
                                         <div class="user_name">{{ $com->kullanici->adsoyad }}</div>
                                         <p>{{ $com->yorum }}</p>
                                     </div>
                                 </div>
 
-                                @endforeach
+                            @endforeach
 
+                            {{--<h1>{{ $carbon }}</h1>--}}
 
                             @auth
 
                             <!-- Add Review -->
-                            <div class="col-lg-6 add_review_col">
+                                <div class="col-lg-6 add_review_col">
 
-                                <div class="add_review">
-                                    <form id="review_form" action="{{ route('yorum.kaydet',$urun->slug) }}" method="POST">
+                                    <div class="add_review">
+                                        <form id="review_form" action="{{ route('yorum.kaydet',$urun->slug) }}"
+                                              method="POST">
                                             @csrf
-                                        <div>
-                                            <h1>Yorumunuz:</h1>
-                                            <textarea id="review_message" class="input_review" name="yorum"
-                                                      placeholder="Urun Hakkında Deneyimlerinizi Belirtiniz" rows="4" cols="18" required
-                                                      data-error="Please, leave us a review."></textarea>
-                                        </div>
-                                        <div class="text-left text-sm-right">
+                                            <div>
+                                                <h1>Yorumunuz:</h1>
+                                                <textarea id="review_message" class="input_review" name="yorum"
+                                                          placeholder="Urun Hakkında Deneyimlerinizi Belirtiniz"
+                                                          rows="4" cols="18" required
+                                                          data-error="Please, leave us a review."></textarea>
+                                            </div>
+                                            <div class="text-left text-sm-right">
 
-                                            <input type="hidden" name="id" value="{{ $urun->id }}">
-                                            <button id="review_submit" type="submit"
-                                                    class="red_button review_submit_btn trans_300" value="Submit">Gönder
-                                            </button>
-                                        </div>
-                                    </form>
+                                                <input type="hidden" name="id" value="{{ $urun->id }}">
+                                                <button id="review_submit" type="submit"
+                                                        class="red_button review_submit_btn trans_300" value="Submit">
+                                                    Gönder
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
 
-                                @endauth
+                            @endauth
 
                             @guest
                             <!-- Add Review -->
                                 <div class="col-lg-12 add_review_col">
 
                                     <div class="add_review">
-                                            <div width="120">
-                                              <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div width="120">
+                                            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                                                  Ürün Hakkında Yorum Yapabilmek İçin Lütfen Giriş Yapınız !</h1>
 
-                                            </div>
-                                            <div class="text-left text-sm-right">
+                                                Ürün Hakkında Yorum Yapabilmek İçin Lütfen <a style="color:red" href="{{ route('kullanici.oturumac') }}">Giriş</a>
+                                                veya <a style="color:red" href="{{ route('kullanici.kaydol') }}">Kayıt</a>  Yapınız !</h1>
 
-                                            </div>
+                                        </div>
+                                        <div class="text-left text-sm-right">
+
+                                        </div>
                                     </div>
                                 </div>
 
                             @endguest
-
 
 
                         </div>

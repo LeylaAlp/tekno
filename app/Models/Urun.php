@@ -12,6 +12,9 @@ class Urun extends Model
     protected $table = "urun";
     protected $guarded = [];
 
+    protected $dates=['olusturulma_tarihi'];
+
+
     const CREATED_AT = "olusturulma_tarihi";
     const UPDATED_AT = "guncelleme_tarihi";
     const DELETED_AT = "silinme_tarihi";
@@ -27,10 +30,10 @@ class Urun extends Model
         return $this->hasOne('App\Models\UrunDetay')->withDefault();
     }
 
-//    public function yorum()
-//    {
-//        return $this->belongsTo('App\Models\Yorumlar');
-//    }
+    public function yorum()
+    {
+        return $this->hasOne('App\Models\Yorumlar');
+    }
 
 
 }

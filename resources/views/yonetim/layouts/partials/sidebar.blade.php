@@ -25,12 +25,12 @@
                         <i class="fa fa-square"></i>Ürünler</a>
                 </li>
                 <li>
-                    <a href="calendar.html">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
+                    <a href="{{ route('yonetim.yorum') }}">
+                        <i class="fas fa-comments"></i>Yorumlar</a>
                 </li>
                 <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>Maps</a>
+                    <a href="{{ route('yonetim.siparis') }}">
+                        <i class="fas fa-shopping-cart"></i>Siparisler</a>
                 </li>
 
 
