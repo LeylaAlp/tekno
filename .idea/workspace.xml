@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76c225cf-f5e4-4a0a-8b6d-11575b303cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Yonetim/SiparisController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/yonetim/siparis/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/yonetim/siparis/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/yonetim/yorum/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/yonetim/yorum/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UrunController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UrunController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Kategori.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Kategori.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Kullanici.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Kullanici.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sepet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sepet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Siparis.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Siparis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Urun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Urun.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Yorumlar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Yorumlar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_042635_create_yorumlar_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_042635_create_yorumlar_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/kategori.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/kategori.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/urun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/urun.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/yonetim/kategori/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/yonetim/kategori/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/yonetim/kullanici/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/yonetim/kullanici/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/yonetim/layouts/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/yonetim/layouts/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/yonetim/urun/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/yonetim/urun/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/yonetim/urun/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/yonetim/urun/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -228,7 +203,7 @@
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="7" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
@@ -318,7 +293,7 @@
       <workItem from="1602735335401" duration="2998000" />
       <workItem from="1602760677838" duration="14268000" />
       <workItem from="1602867849391" duration="11481000" />
-      <workItem from="1602994652183" duration="4339000" />
+      <workItem from="1602994652183" duration="4498000" />
     </task>
     <task id="LOCAL-00001" summary="ilk yükleme(filemanager kuruldu)">
       <created>1602272012048</created>
@@ -341,11 +316,18 @@
       <option name="project" value="LOCAL" />
       <updated>1602617119291</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="siparis yonetimi olusturuldu">
+      <created>1603003982679</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603003982679</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98128000" />
+    <option name="totallyTimeSpent" value="98287000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -357,9 +339,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19515885" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19515885" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -371,7 +353,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.41571194" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.41571194" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3797054" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
@@ -428,7 +410,8 @@
     <MESSAGE value="ilk yükleme(filemanager kuruldu)" />
     <MESSAGE value="vcs.xml" />
     <MESSAGE value="urun yorumları olusturuldu" />
-    <option name="LAST_COMMIT_MESSAGE" value="urun yorumları olusturuldu" />
+    <MESSAGE value="siparis yonetimi olusturuldu" />
+    <option name="LAST_COMMIT_MESSAGE" value="siparis yonetimi olusturuldu" />
   </component>
   <component name="editorHistoryManager">
     <entry file="das://66679983-3569-41e7-8326-93e9e292b5fc/schema/ecommerce/table/kullanici_detay">
