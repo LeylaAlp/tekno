@@ -13,6 +13,18 @@ class AnasayfaController extends Controller
     {
         $kategoriler = Kategori::whereRaw('ust_id is null')->take(3)->get();
 
+        $order = $request->order;
+
+        if (filled($request->order)) {
+
+            $yeni = Kategori::where('kategori_adi', $order)
+                ->orderByDesc('olusturulma_tarihi')
+                ->firstOrFail();
+            $urunler = $yeni->urunler()->paginate(10);
+        }else{
+            $urunler = Urun::orderByDesc('olusturulma_tarihi')->paginate(10);
+
+        }
 
 
         $urun_gunun_firsati = Urun::select('urun.*')
@@ -54,7 +66,7 @@ class AnasayfaController extends Controller
 
 
         return view('anasayfa', compact('kategoriler', 'urun_gunun_firsati', 'urunler_slider', 'urunler_cok_satan',
-            'urunler_one_cikan', 'urunler_indirimli'));
+            'urunler_one_cikan', 'urunler_indirimli', 'urunler'));
 
     }
 }

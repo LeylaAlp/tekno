@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
+
 
 class Siparis extends Model
 {
@@ -22,6 +24,11 @@ class Siparis extends Model
     public function sepet()
     {
         return $this->belongsTo('App\Models\Sepet');
+    }
+
+    public static function toplam_kazanc()
+    {
+        return DB::table('siparis')->sum('siparis_tutari');
     }
 
 

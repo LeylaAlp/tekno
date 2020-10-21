@@ -24,7 +24,7 @@
                         <form action="{{ route('sepet.ekle') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $urunler_slider->id }}">
-                                <button class="btn btn-danger" type="submit">Satın Al</button>
+                            <button class="btn btn-danger" type="submit">Satın Al</button>
                         </form>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col text-center">
                     <div class="section_title new_arrivals_title">
-                        <h2>New Arrivals</h2>
+                        <h2>Yeni Gelenler</h2>
                     </div>
                 </div>
             </div>
@@ -68,8 +68,11 @@
                 <div class="col text-center">
                     <div class="new_arrivals_sorting">
                         <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-                            @foreach($kategoriler as $index => $kategori)
-                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center {{ $index == 0 ? 'active is-checked' : '' }}">
+                            <li class="btn btn-danger active">
+                                <a href="{{ route('anasayfa') }}">Genel</a>
+                            </li>
+                            @foreach($kategoriler as $kategori)
+                                <li class="btn btn-danger">
                                     <a href="?order={{ $kategori->kategori_adi }}"> {{ $kategori->kategori_adi }} </a>
                                 </li>
                             @endforeach
@@ -83,30 +86,33 @@
                          data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 
-                        <!--    BU ALANIN YAPILABİLMESİ İÇİN KATEGORİ CONTROLLER SAYFASINDAN VERİ GELMESİ GEREKMEKTEDİR.BUNUN İÇİNDE SHARE YÖNTEMİNİ
-                         KULLANACAĞIZ.SHARE YÖNTEMİ İLE TÜM BLADE SAYFALARINA AYNI VERİNİN GÖNDERİLMESİNİ SAĞLAYABİLİYORUZ.-->
+                        @foreach($urunler as $urun)
 
+                            <div class="product-item">
+                                <div class="product discount">
+                                    <div class="product_image">
+                                        <a href="{{ route('urun',$urun->slug) }}"><img
+                                                style="height:250px;" src="{{ $urun->detay->urun_resmi!=null ?
+                                             asset('/images/urunler/'.$urun->detay->urun_resmi) : 'http://via.placeholder.com/400x485?text=UrunResmi'}}"></a>
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    {{--<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>--}}
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a
+                                                href="{{ route('urun',$urun->slug) }}">{{ $urun->urun_adi }}</a>
+                                        </h6>
+                                        <div class="product_price">{{ $urun->fiyati }} ₺</div>
+                                    </div>
 
-                        {{--@foreach($urunler as $urun)--}}
+                                </div>
+                                <form action="{{ route('sepet.ekle') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $urun->id }}">
+                                    <button class="red_button add_to_cart_button" type="submit"><i>Satın Al</i></button>
+                                </form>
+                            </div>
 
-                        {{--<div class="product-item ">--}}
-                        {{--<div class="product discount product_filter">--}}
-                        {{--<div class="product_image">--}}
-                        {{--<img src="images/product_6.png" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="favorite favorite_left"></div>--}}
-                        {{--<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>--}}
-                        {{--<div class="product_info">--}}
-                        {{--<h6 class="product_name"><a href="#single.html">{{ $urun->urun_adi }}</a></h6>--}}
-                        {{--<div class="product_price">$520.00<span>$590.00</span></div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>--}}
-                        {{--</div>--}}
-
-
-                        {{--@endforeach--}}
-
+                        @endforeach
 
                     </div>
                 </div>
@@ -150,7 +156,12 @@
                                 <div class="timer_unit">Sec</div>
                             </li>
                         </ul>
-                        <div class="red_button deal_ofthe_week_button"><a href="#">Hemen Satın Al</a></div>
+                        <form action="{{ route('sepet.ekle') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $urun->id }}">
+                            <button class="red_button deal_ofthe_week_button" type="submit"><i>Hemen Satın Al</i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -195,6 +206,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <form action="{{ route('sepet.ekle') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $urun->id }}">
+                                        <button class="red_button add_to_cart_button" type="submit"><i>Satın Al</i>
+                                        </button>
+                                    </form>
                                 </div>
 
                             @endforeach
@@ -212,107 +229,112 @@
                             <i class="fa fa-chevron-right" aria-hidden="true"></i>
                         </div>
 
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-        <!-- Benefit -->
-
-        <div class="benefit">
-            <div class="container">
-                <div class="row benefit_row">
-                    <div class="col-lg-3 benefit_col">
-                        <div class="benefit_item d-flex flex-row align-items-center">
-                            <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-                            <div class="benefit_content">
-                                <h6>free shipping</h6>
-                                <p>Suffered Alteration in Some Form</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 benefit_col">
-                        <div class="benefit_item d-flex flex-row align-items-center">
-                            <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-                            <div class="benefit_content">
-                                <h6>cach on delivery</h6>
-                                <p>The Internet Tend To Repeat</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 benefit_col">
-                        <div class="benefit_item d-flex flex-row align-items-center">
-                            <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-                            <div class="benefit_content">
-                                <h6>45 days return</h6>
-                                <p>Making it Look Like Readable</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 benefit_col">
-                        <div class="benefit_item d-flex flex-row align-items-center">
-                            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                            <div class="benefit_content">
-                                <h6>opening all week</h6>
-                                <p>8AM - 09PM</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
+    </div>
 
-        <!-- Blogs -->
+    <!-- Benefit -->
 
-        <div class="blogs">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="section_title">
-                            <h2>Latest Blogs</h2>
+    <div class="benefit">
+        <div class="container">
+            <div class="row benefit_row">
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>free shipping</h6>
+                            <p>Suffered Alteration in Some Form</p>
                         </div>
                     </div>
                 </div>
-                <div class="row blogs_container">
-                    <div class="col-lg-4 blog_item_col">
-                        <div class="blog_item">
-                            <div class="blog_background" style="background-image:url(/images/blog_1.jpg)"></div>
-                            <div
-                                class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-                                <h4 class="blog_title">Here are the trends I see coming this fall</h4>
-                                <span class="blog_meta">by admin | dec 01, 2017</span>
-                                <a class="blog_more" href="#">Read more</a>
-                            </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>cach on delivery</h6>
+                            <p>The Internet Tend To Repeat</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 blog_item_col">
-                        <div class="blog_item">
-                            <div class="blog_background" style="background-image:url(images/blog_2.jpg)"></div>
-                            <div
-                                class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-                                <h4 class="blog_title">Here are the trends I see coming this fall</h4>
-                                <span class="blog_meta">by admin | dec 01, 2017</span>
-                                <a class="blog_more" href="#">Read more</a>
-                            </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>45 days return</h6>
+                            <p>Making it Look Like Readable</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 blog_item_col">
-                        <div class="blog_item">
-                            <div class="blog_background" style="background-image:url(images/blog_3.jpg)"></div>
-                            <div
-                                class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-                                <h4 class="blog_title">Here are the trends I see coming this fall</h4>
-                                <span class="blog_meta">by admin | dec 01, 2017</span>
-                                <a class="blog_more" href="#">Read more</a>
-                            </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>opening all week</h6>
+                            <p>8AM - 09PM</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Blogs -->
+
+    <div class="blogs">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_title">
+                        <h2>Latest Blogs</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row blogs_container">
+                <div class="col-lg-4 blog_item_col">
+                    <div class="blog_item">
+                        <div class="blog_background" style="background-image:url(/images/blog_1.jpg)"></div>
+                        <div
+                            class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+                            <h4 class="blog_title">Here are the trends I see coming this fall</h4>
+                            <span class="blog_meta">by admin | dec 01, 2017</span>
+                            <a class="blog_more" href="#">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 blog_item_col">
+                    <div class="blog_item">
+                        <div class="blog_background" style="background-image:url(images/blog_2.jpg)"></div>
+                        <div
+                            class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+                            <h4 class="blog_title">Here are the trends I see coming this fall</h4>
+                            <span class="blog_meta">by admin | dec 01, 2017</span>
+                            <a class="blog_more" href="#">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 blog_item_col">
+                    <div class="blog_item">
+                        <div class="blog_background" style="background-image:url(images/blog_3.jpg)"></div>
+                        <div
+                            class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+                            <h4 class="blog_title">Here are the trends I see coming this fall</h4>
+                            <span class="blog_meta">by admin | dec 01, 2017</span>
+                            <a class="blog_more" href="#">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     });
+    });
+    });
+    </script>
+@endsection
+
 
 
 
